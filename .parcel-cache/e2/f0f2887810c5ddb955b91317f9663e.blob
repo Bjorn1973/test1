@@ -1,0 +1,6 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _styleScss = require("../css/style.scss");
+var _square = require("./classes/Square");
+var _squareDefault = parcelHelpers.interopDefault(_square);
+new _squareDefault.default(20, 20, 200, document.querySelector(".test"));
+console.log("developmentsecret");

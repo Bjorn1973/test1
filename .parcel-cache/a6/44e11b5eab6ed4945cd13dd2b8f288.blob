@@ -1,0 +1,100 @@
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Square
+);
+function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+}
+function _classPrivateFieldGet(receiver, privateMap) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
+    return _classApplyDescriptorGet(receiver, descriptor);
+}
+function _classApplyDescriptorGet(receiver, descriptor) {
+    if (descriptor.get) return descriptor.get.call(receiver);
+    return descriptor.value;
+}
+function _classPrivateMethodGet(receiver, privateSet, fn) {
+    if (!privateSet.has(receiver)) throw new TypeError("attempted to get private field on non-instance");
+    return fn;
+}
+function _classPrivateFieldSet(receiver, privateMap, value) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
+    _classApplyDescriptorSet(receiver, descriptor, value);
+    return value;
+}
+function _classExtractFieldDescriptor(receiver, privateMap, action) {
+    if (!privateMap.has(receiver)) throw new TypeError("attempted to " + action + " private field on non-instance");
+    return privateMap.get(receiver);
+}
+function _classApplyDescriptorSet(receiver, descriptor, value) {
+    if (descriptor.set) descriptor.set.call(receiver, value);
+    else {
+        if (!descriptor.writable) throw new TypeError("attempted to set read only private field");
+        descriptor.value = value;
+    }
+}
+var _x = /*#__PURE__*/ new WeakMap();
+var _y = /*#__PURE__*/ new WeakMap();
+var _size = /*#__PURE__*/ new WeakMap();
+var _holder = /*#__PURE__*/ new WeakMap();
+var _clicked = /*#__PURE__*/ new WeakMap();
+var _generateHTML = /*#__PURE__*/ new WeakSet();
+var _setStyling = /*#__PURE__*/ new WeakSet();
+var _setUpEvents = /*#__PURE__*/ new WeakSet();
+var Square = function Square1(x, y, size, holder) {
+    _classCallCheck(this, Square1);
+    _setUpEvents.add(this);
+    _setStyling.add(this);
+    _generateHTML.add(this);
+    _x.set(this, {
+        writable: true,
+        value: void 0
+    });
+    _y.set(this, {
+        writable: true,
+        value: void 0
+    });
+    _size.set(this, {
+        writable: true,
+        value: void 0
+    });
+    _holder.set(this, {
+        writable: true,
+        value: void 0
+    });
+    _clicked.set(this, {
+        writable: true,
+        value: 0
+    });
+    _classPrivateFieldSet(this, _x, x);
+    _classPrivateFieldSet(this, _y, y);
+    _classPrivateFieldSet(this, _size, size);
+    _classPrivateFieldSet(this, _holder, holder);
+    this.htmlRef = _classPrivateMethodGet(this, _generateHTML, _generateHTML2).call(this); //console.log(this.htmlRef);
+    _classPrivateMethodGet(this, _setStyling, _setStyling2).call(this);
+    _classPrivateMethodGet(this, _setUpEvents, _setUpEvents2).call(this);
+}//   get x() {
+;
+function _generateHTML2() {
+    _classPrivateFieldGet(this, _holder).insertAdjacentHTML("beforeend", "\n        <div class=\"square\"></div>\n      ");
+    return _classPrivateFieldGet(this, _holder).querySelector(".square:last-child");
+}
+function _setStyling2() {
+    var styles = {
+        left: _classPrivateFieldGet(this, _x) + "px",
+        top: _classPrivateFieldGet(this, _y) + "px",
+        width: _classPrivateFieldGet(this, _size) + "px",
+        height: _classPrivateFieldGet(this, _size) + "px",
+        backgroundColor: "blue"
+    };
+    Object.assign(this.htmlRef.style, styles);
+}
+function _setUpEvents2() {
+    var _this = this;
+    this.htmlRef.onclick = function() {
+        var _this$clicked;
+        _this.htmlRef.style.backgroundColor = "red";
+        _classPrivateFieldSet(_this, _clicked, (_this$clicked = +_classPrivateFieldGet(_this, _clicked)) + 1);
+        if (_classPrivateFieldGet(_this, _clicked) === 5) _classPrivateFieldGet(_this, _holder).removeChild(_this.htmlRef);
+    };
+}
